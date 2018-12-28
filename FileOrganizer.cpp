@@ -9,17 +9,35 @@
 #include <sstream> 
 #include <sys/types.h>
 #include <sys/stat.h>
-#define _WIN32_WINNT_WINTHRESHOLD           0x0A00 // Windows 10
-#define _WIN32_WINNT_WIN10                  0x0A00 // Windows 10
+//#define _WIN32_WINNT_WINTHRESHOLD           0x0A00 // Windows 10
+//#define _WIN32_WINNT_WIN10                  0x0A00 // Windows 10
 #include <windows.h>
 #include <shlobj.h>
 #include <locale>
 #include <codecvt>
 #include <locale.h>
+
 using namespace std;
-
 namespace fs = std::filesystem;
+#ifdef _WIN32
+#define PLATFORM_NAME  "Windows 32-bit"
+#elif defined _WIN64
+#define PLATFORM_NAME "Windows 64-bit"
+#elif defined __unix || __unix__
+#define PLATFORM_NAME "Unix"
+#elif defined __APPLE__ || __MACH__
+#define PLATFORM_NAME "Mac OSX"
+#elif defined __linux__
+#define PLATFORM_NAME "Linux"
+#elif defined __FreeBSD__
+#define PLATFORM_NAME "FreeBSD"
+#else
+#define PLATFORM_NAME "Other"
+#endif
 
+string getSystemType() {
+	return (PLATFORM_NAME == NULL) ? "" : PLATFORM_NAME;
+}
 //Determine what file type 
 void checkTypeFunc(string fileName, const fs::path, const string pathDir);
 
@@ -57,16 +75,20 @@ int main()
 	CoTaskMemFree(static_cast<void*>(localAppData));
 
 	checkPathExists(path);
-	for (const auto & entry : fs::directory_iterator(path))
-		try {
-			string pathStr = entry.path().u8string();
-			string reducedName = pathStr.substr(25);
-			//std::cout << reducedName << std::endl;
-			checkTypeFunc(reducedName, entry, path);
-		}
-		catch (...) {
-			cerr << "\n\n\n\n Wot \n\n\n\n" << endl;
-		}
+	if (getSystemType().find("Windows") != string::npos) {
+		for (const auto & entry : fs::directory_iterator(path))
+			try {
+				string pathStr = entry.path().u8string();
+				string reducedName = pathStr.substr(25);
+				checkTypeFunc(reducedName, entry, path);
+			}
+			catch (...) {
+				cerr << "\n\n\n\n Wot \n\n\n\n" << endl;
+			}
+	}
+
+
+	
     return 0;
 }
 
