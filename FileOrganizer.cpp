@@ -33,7 +33,7 @@ void checkPathExists(string path);
 bool createFolder(string OutputFolder);
 
 //Not within expected item type (File type)
-void lastResort(string fileName, const fs::path pathFile, const string pathDir);
+void lastResort(string fileName, const fs::path pathFile, const string pathDir); 
 
 // Convert Wide Unicode String to UTF8 String
 std::string ws2s(const std::wstring& s);
