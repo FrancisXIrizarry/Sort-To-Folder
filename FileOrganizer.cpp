@@ -33,7 +33,7 @@ void checkPathExists(string path);
 bool createFolder(string OutputFolder);
 
 //Not within expected item type (File type)
-void lastResort(string fileName, const fs::path pathFile, const string pathDir); 
+void lastResort(string fileName, const fs::path pathFile, const string pathDir);
 
 // Convert Wide Unicode String to UTF8 String
 std::string ws2s(const std::wstring& s);
@@ -143,23 +143,16 @@ void checkPathExists(string path)
 	string textStr = path + "/textFolder";
 
 	cout << pdfStr << endl;
-	if (createFolder(pdfStr)) {
-		cout << "Created Folder at:	" << pdfStr << endl;
+	try {
+		createFolder(pdfStr);
+		createFolder(picStr);
+		createFolder(vidStr);
+		createFolder(zipStr);
+		createFolder(zipStr);
 	}
-	if (createFolder(picStr)) {
-		cout << "Created Folder at:	" << picStr << endl;
+	catch (...) {
+		cerr << "Something broke in Pre-Set Folder Creation Function (checkPathExists)" << endl;
 	}
-	if (createFolder(vidStr)) {
-		cout << "Created Folder at:	" << vidStr << endl;
-	}
-	if (createFolder(zipStr)) {
-		cout << "Created Folder at:	" << zipStr << endl;
-	}
-	if (createFolder(textStr)) {
-		cout << "Created Folder at:	" << zipStr << endl;
-	}
-
-
 }
 
 bool createFolder(string OutputFolder) {
