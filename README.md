@@ -12,7 +12,7 @@ I was getting really annoyed at how much space was using in my download folder w
 * Reduce Redundancy
 * Add more specific cases
 * Try to integrate website download information to better sort data
-* Potentially intergrate method to determine NSFW/SFW Data to sort appropriately. 
+* Potentially intergrate method (Image recogonition) to determine NSFW/SFW Data to sort appropriately. 
 * Add GUI so users can request location to sort data, time limit, etc.
 * Maybe cross-code with python. 
 
