@@ -16,6 +16,6 @@ I was getting really annoyed at how much space was using in my download folder w
 * Add GUI so users can request location to sort data, time limit, etc.
 * Maybe cross-code with python. 
 
-[Windows API to convert WString/String](https://docs.microsoft.com/en-us/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte)
+[Windows API to convert WString/String](https://docs.microsoft.com/en-us/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte)  
 [Windows API to create folders](https://docs.microsoft.com/en-us/windows/desktop/api/fileapi/nf-fileapi-createdirectorya)    
 [Windows WideCharToMultiByte Example](https://stackoverflow.com/questions/215963/how-do-you-properly-use-widechartomultibyte)  
