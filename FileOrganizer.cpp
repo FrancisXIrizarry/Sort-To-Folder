@@ -44,8 +44,8 @@ std::string utf8_encode(const std::wstring &wstr);
 // Convert an UTF8 string to a wide Unicode String
 std::wstring utf8_decode(const std::string &str);
 
-//Add to file (To reduce redundancy)
-void addToFile(string fileName, const fs::path pathFile, const string pathDir, const string folderName);
+//Add to folder (To reduce redundancy)
+void addToFolder(string fileName, const fs::path pathFile, const string pathDir, const string folderName);
 
 int main()
 {
@@ -74,28 +74,28 @@ void checkTypeFunc(string fileName, const fs::path pathFile, const string pathDi
 	transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
 	if (fileName.find("pdf") != string::npos && fileName != "pdffolder") {
 		string folderName = "/pdfFolder/";
-		addToFile(fileName, pathFile, pathDir, folderName);
+		addToFolder(fileName, pathFile, pathDir, folderName);
 	}
 	else if (fileName.find("png") != string::npos || fileName.find("jpg") != string::npos || fileName.find("tiff") != string::npos || fileName.find("jpeg") != string::npos) { 
 		
 		string folderName = "/picFolder/";
-		addToFile(fileName, pathFile, pathDir, folderName);
+		addToFolder(fileName, pathFile, pathDir, folderName);
 	}
 	else if (fileName.find("mp4") != string::npos || fileName.find("mov") != string::npos || fileName.find("avi") != string::npos || fileName.find(".ts") != string::npos) {
 
 		string folderName = "/vidFolder/";
-		addToFile(fileName, pathFile, pathDir, folderName);
+		addToFolder(fileName, pathFile, pathDir, folderName);
 	}
 	else if (fileName.find("zip") != string::npos || fileName.find("rar") != string::npos  && fileName != "zipfolder") {
 
 		string folderName = "/zipFolder/";
-		addToFile(fileName, pathFile, pathDir, folderName);
+		addToFolder(fileName, pathFile, pathDir, folderName);
 	}
 	else if (fileName.find(".txt") != string::npos || fileName.find(".doc") != string::npos || fileName.find(".readme") != string::npos
 			|| fileName.find(".text") != string::npos&& fileName != "textfolder") {
 
 		string folderName = "/textFolder/";
-		addToFile(fileName, pathFile, pathDir, folderName);
+		addToFolder(fileName, pathFile, pathDir, folderName);
 	}
 	else {
 		lastResort(fileName, pathFile, pathDir);
@@ -205,7 +205,7 @@ std::wstring utf8_decode(const std::string &str)
 	return wstrTo;
 }
 
-void addToFile(string fileName, const fs::path pathFile, const string pathDir, const string folderName) {
+void addToFolder(string fileName, const fs::path pathFile, const string pathDir, const string folderName) {
 
 	cout << "FileName: \t" << fileName << endl;
 	try {
