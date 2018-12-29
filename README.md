@@ -19,7 +19,7 @@ I was getting really annoyed at how much space was using in my download folder, 
 [Windows API to convert WString/String](https://docs.microsoft.com/en-us/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte)  
 [Windows API to create folders](https://docs.microsoft.com/en-us/windows/desktop/api/fileapi/nf-fileapi-createdirectorya)    
 [Windows WideCharToMultiByte Example](https://stackoverflow.com/questions/215963/how-do-you-properly-use-widechartomultibyte)  
-[Cross Platform Link 1 (Easiest Way to Cross Platform)](https://stackoverflow.com/questions/4780316/easiest-way-to-build-a-cross-platform-application)
-[Cross Platform Link 2 (Learning Cross Platform C)](https://stackoverflow.com/questions/1558194/learning-and-cross-platform-development-c)
-[Cross Platform Link 3 (C App Cross Platformed?)](https://stackoverflow.com/questions/33238345/are-c-applications-cross-platform)
+[Cross Platform Link 1 (Easiest Way to Cross Platform)](https://stackoverflow.com/questions/4780316/easiest-way-to-build-a-cross-platform-application)  
+[Cross Platform Link 2 (Learning Cross Platform C)](https://stackoverflow.com/questions/1558194/learning-and-cross-platform-development-c)  
+[Cross Platform Link 3 (C App Cross Platformed?)](https://stackoverflow.com/questions/33238345/are-c-applications-cross-platform)  
 
