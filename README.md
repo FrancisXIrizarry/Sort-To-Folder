@@ -11,7 +11,7 @@ I was getting really annoyed at how much space was using in my download folder, 
 * ~~Ubuntu 16.04 Adaptation~~ (Can run on Windows 10 (Windows 7 & Later) & Ubuntu 16.04 (Unix Systems that can run C++17 should be fine & Later than Ubuntu 12.04))
 * Reduce Redundancy [XXXXXXXXOOOOOOOO] 46%
 * Add more specific cases
-* Try to integrate website download information to better sort data
+* Try to integrate website download information to better sort data (Unlikely as I would have to keep constant track of chrome/website downloads, in which, I will likely be making a chrome web extension to alter file names to include host download site).
 * Potentially integrate method (Image recognition) to determine NSFW/SFW Data to sort appropriately. 
 * Add GUI so users can request location to sort data, time limit, etc. [C++ GUI](https://stackoverflow.com/questions/1186017/how-do-i-build-a-graphical-user-interface-in-c)  
 * Maybe cross-code with python for more difficult tasks regarding image recognition. 
