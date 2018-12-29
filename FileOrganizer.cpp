@@ -1,12 +1,13 @@
 // FileOrganizer.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+
 #include <string>
 #include <iostream>
 #include "WindowsVer.h"
+#include "LinuxVer.h"
 
-#ifdef _WIN32 || _WIN64
+#ifdef _WIN32
 #define PLATFORM_NAME  "Windows 32-bit"
 #elif defined __unix || __unix__
 #define PLATFORM_NAME "Unix"
@@ -30,11 +31,21 @@ string getSystemType() {
 
 int main()
 {
-	if (getSystemType().find("Windows") != string::npos) {
-		mainWindowFunc(getSystemType());
-	}
-	else if (getSystemType().find("Linux") != string::npos) {
 
-	}	
+    cout << getSystemType() << endl;
+	if (getSystemType().find("Windows") != string::npos) {
+        #ifdef _WIN32 
+		mainWindowFunc(getSystemType());
+        #endif
+	}
+	else if (getSystemType().find("Unix") != string::npos) {
+        #ifdef __unix 
+		mainLinuxFunc(getSystemType());
+        #endif
+	}
+
+
+	
     return 0;
 }
+

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stdafx.h"
+#ifdef _WIN32
 #include <string>
 #include <iostream>
 #include <filesystem>
@@ -13,6 +13,7 @@
 #include <locale>
 #include <codecvt>
 #include <locale.h>
+
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -213,3 +214,6 @@ void addToFolder(string fileName, const fs::path pathFile, const string pathDir,
 		std::cout << e.what() << '\n';
 	}
 }
+
+#else
+#endif
