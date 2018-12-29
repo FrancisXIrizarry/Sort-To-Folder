@@ -8,7 +8,7 @@ I was getting really annoyed at how much space was using in my download folder w
 > This is designed to work only from the Downloads folder on someone's computer. (Whole purpose of using Windows API calls)
 
 # Intentions  
-* ~~Ubuntu 16.04 Adaptation~~
+* ~~Ubuntu 16.04 Adaptation~~ (Can run on Windows 10 & Ubuntu 16.04 (Unix Systems that can run C++17 should be fine & later than Ubuntu 12.04))
 * Reduce Redundancy
 * Add more specific cases
 * Try to integrate website download information to better sort data
