@@ -9,7 +9,7 @@ I was getting really annoyed at how much space was using in my download folder w
 
 # Intentions  
 * ~~Ubuntu 16.04 Adaptation~~ (Can run on Windows 10 & Ubuntu 16.04 (Unix Systems that can run C++17 should be fine & later than Ubuntu 12.04))
-* Reduce Redundancy [XXXXXXXX       ] 46%
+* Reduce Redundancy [XXXXXXXXOOOOOOOO] 46%
 * Add more specific cases
 * Try to integrate website download information to better sort data
 * Potentially integrate method (Image recognition) to determine NSFW/SFW Data to sort appropriately. 
