@@ -79,19 +79,34 @@ namespace Test1C3
             {
                 this.textBox1.Multiline = true;
                 string path = Environment.CurrentDirectory + "/" + "sortToFolderFinal.conf";
-                using (StreamReader sr = new StreamReader(path))
+                FileInfo fInfo = new FileInfo(path);
+
+                if (!fInfo.Exists)
                 {
-                    String line;
-                    line = sr.ReadLine();
-                    //Continue to read until you reach end of file
-                    int count = 0;
-                    while (line != null)
+                    File.CreateText(path);
+                }
+                else
+                {
+                    using (StreamReader sr = new StreamReader(path))
                     {
-                        //write the lie to console window
-                        allLocations.Add(line, count);
-                        //Read the next line
-                        line = sr.ReadLine();
-                        count++;
+                        if (new FileInfo(path).Length == 0)
+                        {
+                        }
+                        else
+                        {
+                            String line;
+                            line = sr.ReadLine();
+                            //Continue to read until you reach end of file
+                            int count = 0;
+                            while (line != null)
+                            {
+                                //write the lie to console window
+                                allLocations.Add(line, count);
+                                //Read the next line
+                                line = sr.ReadLine();
+                                count++;
+                            }
+                        }
                     }
                 }
             }
