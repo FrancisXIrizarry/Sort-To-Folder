@@ -1,7 +1,9 @@
-#pragma once
 
+#ifndef WINDOWSVER_H
+#define WINDOWSVER_H
 #ifdef _WIN32
 #include <string>
+#include <vector>
 #include <iostream>
 #include <filesystem>
 #include <fstream>
@@ -50,31 +52,50 @@ void addToFolder(string fileName, const fs::path pathFile, const string pathDir,
 
 
 
-int mainWindowFunc(string PLAT_FORM)
+int mainWindowFunc(string PLAT_FORM, vector<string> &allLocs)//Add path string, check if path leads somewhere, then run
 {
 	PLATFORM_NAME = PLAT_FORM;
-	wchar_t* localAppData = 0;
+	/*wchar_t* localAppData = 0;
 	HRESULT hr = SHGetKnownFolderPath(FOLDERID_Downloads, 0, NULL, &localAppData);
 	string path = utf8_encode(localAppData);
 	cout << path << endl;
 	CoTaskMemFree(static_cast<void*>(localAppData));
-
-	checkPathExists(path);
-	for (const auto & entry : fs::directory_iterator(path)){
-		try {
-			string pathStr = entry.path().u8string();
-			string reducedName = pathStr.substr(25);
-			checkTypeFunc(reducedName, entry, path);
-		}
-		catch (...) {
-			cerr << "\n\n\n\n Wot \n\n\n\n" << endl;
+	*/
+	int sizeOfVec = allLocs.size();
+	for (int loc = 0; loc < sizeOfVec; loc++) {
+		string path = allLocs.at(loc);
+		checkPathExists(path);
+		for (const auto & entry : fs::directory_iterator(path)) {
+			try {
+				string pathStr = entry.path().u8string();
+				string reducedName = pathStr.substr(25);
+				checkTypeFunc(reducedName, entry, path);
+			}
+			catch (...) {
+				cerr << "\n\n\n\n Wot \n\n\n\n" << endl;
+			}
 		}
 	}
 
-
 	return 0;
 }
+/*
+for (int loc = 0; loc < sizeOfVec; loc++) {
+		string path = allLocs.at(loc);
+		checkPathExists(path);
+		for (const auto & entry : fs::directory_iterator(path)) {
+			try {
+				string pathStr = entry.path().u8string();
+				string reducedName = pathStr.substr(25);
+				checkTypeFunc(reducedName, entry, path);
+			}
+			catch (...) {
+				cerr << "\n\n\n\n Wot \n\n\n\n" << endl;
+			}
+		}
+	}
 
+*/
 void checkTypeFunc(string fileName, const fs::path pathFile, const string pathDir) {
 	transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
 	if (fileName.find("pdf") != string::npos && fileName != "pdffolder") {
@@ -91,7 +112,7 @@ void checkTypeFunc(string fileName, const fs::path pathFile, const string pathDi
 		string folderName = "/vidFolder/";
 		addToFolder(fileName, pathFile, pathDir, folderName);
 	}
-	else if (fileName.find("zip") != string::npos || fileName.find("rar") != string::npos  && fileName != "zipfolder") {
+	else if ((fileName.find("zip") != string::npos || fileName.find("rar") != string::npos)  && fileName != "zipfolder") {
 
 		string folderName = "/zipFolder/";
 		addToFolder(fileName, pathFile, pathDir, folderName);
@@ -153,7 +174,7 @@ void checkPathExists(string path)
 		createFolder(picStr);
 		createFolder(vidStr);
 		createFolder(zipStr);
-		createFolder(zipStr);
+		createFolder(textStr);
 	}
 	catch (...) {
 		cerr << "Something broke in Pre-Set Folder Creation Function (checkPathExists)" << endl;
@@ -216,4 +237,5 @@ void addToFolder(string fileName, const fs::path pathFile, const string pathDir,
 }
 
 #else
+#endif
 #endif

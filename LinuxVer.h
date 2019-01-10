@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef LINUXVER_H
+#define LINUXVER_H
+
 #ifdef __unix
 
 
@@ -169,4 +172,5 @@ int mainLinuxFunc(std::string PLAT_FORM)
 
 
 
+#endif
 #endif
