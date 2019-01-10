@@ -11,6 +11,7 @@
 #include <sstream>
 #include <fstream>
 #include <dirent.h>
+#include <vector>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -129,43 +130,45 @@ void checkTypeFunc(std::string fileName, const std::string pathDir, const std::s
 /*void checkType(DIR * testVar){
     std::cout << typeid(testVar).name() << '\n';
 }*/
-int mainLinuxFunc(std::string PLAT_FORM)
+int mainLinuxFunc(std::string PLAT_FORM, vector<string> &allLocs)
 {
-    std::cout << "Works (Linux)" << std::endl;
+    /*std::cout << "Works (Linux)" << std::endl;
     struct passwd *pw = getpwuid(getuid());
     std::string homedir = pw->pw_dir;
     homedir = homedir + "/Downloads";
-    std::cout << homedir << std::endl;
+    std::cout << homedir << std::endl;*/
 
 
     DIR *dir;
     //checkType(dir);
-    defaultFolderSetup(homedir);
-    struct dirent *entity;
-    if ((dir = opendir (homedir.c_str())) != NULL) {
-        /* print all the files and directories within directory */
-        while ((entity = readdir (dir)) != NULL) {
-            //std::cout << entity->d_name << std::endl;
-            DIR* tempDir = opendir((homedir + "/" + entity->d_name).c_str());
-            if(tempDir){
-                //std::cout << "Folder: " << entity->d_name << std::endl;
-                closedir (tempDir);
-            }
-            else{
-                //std::cout << entity->d_name << std::endl;
-                std::string fullPathVar = homedir + "/" + entity->d_name;
-                checkTypeFunc(entity->d_name, homedir, fullPathVar);
-                
-            }
-            
-        }
-        closedir (dir);
-    }   
-    else {
-        /* could not open directory */
-        perror ("");
-        return EXIT_FAILURE;
-    }
+	for (auto homedir : allLocs) {
+		defaultFolderSetup(homedir);
+		struct dirent *entity;
+		if ((dir = opendir(homedir.c_str())) != NULL) {
+			/* print all the files and directories within directory */
+			while ((entity = readdir(dir)) != NULL) {
+				//std::cout << entity->d_name << std::endl;
+				DIR* tempDir = opendir((homedir + "/" + entity->d_name).c_str());
+				if (tempDir) {
+					//std::cout << "Folder: " << entity->d_name << std::endl;
+					closedir(tempDir);
+				}
+				else {
+					//std::cout << entity->d_name << std::endl;
+					std::string fullPathVar = homedir + "/" + entity->d_name;
+					checkTypeFunc(entity->d_name, homedir, fullPathVar);
+
+				}
+
+			}
+			closedir(dir);
+		}
+		else {
+			/* could not open directory */
+			perror("");
+			return EXIT_FAILURE;
+		}
+	}
     return 0;
 }
 
