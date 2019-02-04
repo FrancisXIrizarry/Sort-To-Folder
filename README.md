@@ -1,5 +1,5 @@
 # Sort-To-Folder
-Simple C++ 17 program to sort items to folder (Current Version Windows).
+Simple C++ 17 program to sort items to folder (Current Version Windows + Linux).
 
 ## Deposition
 
@@ -10,7 +10,7 @@ I was getting really annoyed at how much space was using in my download folder, 
 # Intentions  
 * ~~Ubuntu 16.04 Adaptation~~ (Can run on Windows 10 (Windows 7 & Later) & Ubuntu 16.04 (Unix Systems that can run C++17 should be fine & Later than Ubuntu 12.04))
 * Reduce Redundancy [XXXXXXXXXXXXXXOOO] 86%
-* ~~Add more specific cases~~
+* ~~Add more specific cases~~ Done
 * ~~Try to integrate website download information to better sort data (Unlikely as I would have to keep constant track of chrome/website downloads, in which, I will likely be making a chrome web extension to alter file names to include host download site).~~ Nope
 * ~~Potentially integrate method (Image recognition) to determine NSFW/SFW Data to sort appropriately.~~ No thanks. 
 * Add GUI so users can request location to sort data, time limit, etc. [C++ GUI](https://stackoverflow.com/questions/1186017/how-do-i-build-a-graphical-user-interface-in-c)  *Done*
