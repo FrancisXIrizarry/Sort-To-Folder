@@ -8,12 +8,12 @@ I was getting really annoyed at how much space was using in my download folder, 
 > ~~This is designed to work only from the Downloads folder on someone's computer. (Whole purpose of using Windows API calls)~~ It can now do any location you provide given that the location actually exists. 
 
 > Usage is the following:
-  1) Run Executable (With corresponding files (DLL, LIB))
-    1. Write sort locations, EX: C:\Users\USERNAME\Downloads
-    2. Show Current Locations, Shows the currently listed location provided by the user. 
-    3. Sort Data, Runs sort functions in locations provided
-    4. Quit (Exit program)
-    5. ReadMe (Explains this information briefly).
+  1) Run Executable (With corresponding files (DLL, LIB))  
+    1. Write sort locations, EX: C:\Users\USERNAME\Downloads  
+    2. Show Current Locations, Shows the currently listed location provided by the user.   
+    3. Sort Data, Runs sort functions in locations provided  
+    4. Quit (Exit program)  
+    5. ReadMe (Explains this information briefly).  
 
 # Intentions  
 * ~~Ubuntu 16.04 Adaptation~~ (Can run on Windows 10 (Windows 7 & Later) & Ubuntu 16.04 (Unix Systems that can run C++17 should be fine & Later than Ubuntu 12.04))
