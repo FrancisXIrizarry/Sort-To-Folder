@@ -1,5 +1,5 @@
 # Sort-To-Folder
-Simple C++ 17 program to sort items to folder (Current Version Windows ~~+ Linux~~).
+C++ 17 program to sort items to folder (Current Version Windows ~~+ Linux~~ (DLL + C# on Linux from Windows is not as easy as I thought)).
 
 ## Deposition
 
